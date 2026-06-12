@@ -18,9 +18,9 @@ export default function Footer() {
         <div className="footer-links">
           <h4>Help</h4>
           <Link to="/orders">My Orders</Link>
-          <a href="#">Returns</a>
-          <a href="#">Size Guide</a>
-          <a href="#">Contact Us</a>
+          <a href="/home">Returns</a>
+          <a href="/home">Size Guide</a>
+          <a href="/home">Contact Us</a>
         </div>
         <div className="footer-links">
           <h4>Contact</h4>
