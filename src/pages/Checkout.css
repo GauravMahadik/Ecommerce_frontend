@@ -1,0 +1,30 @@
+.checkout-page { max-width: 1100px; margin: 0 auto; padding: 24px 16px; }
+.checkout-page h1 { font-size: 1.5rem; font-weight: 700; margin-bottom: 24px; }
+.checkout-layout { display: grid; grid-template-columns: 1fr 360px; gap: 24px; }
+.checkout-section { background: white; border-radius: 12px; padding: 24px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.checkout-section h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group.full { grid-column: 1/-1; }
+.form-group label { font-size: 0.85rem; font-weight: 500; color: #495057; }
+.form-group input { padding: 10px 14px; border: 1px solid #dee2e6; border-radius: 8px; font-size: 0.9rem; outline: none; }
+.form-group input:focus { border-color: #e91e8c; }
+.payment-options { display: flex; gap: 12px; }
+.payment-option { flex: 1; display: flex; align-items: center; gap: 10px; padding: 14px; border: 2px solid #dee2e6; border-radius: 10px; cursor: pointer; font-size: 0.95rem; }
+.payment-option.active { border-color: #e91e8c; background: #fce4ec; }
+.payment-option input { display: none; }
+.coming-soon { color: #e91e8c; font-size: 0.85rem; margin-top: 10px; }
+.place-order-btn { width: 100%; padding: 16px; background: #e91e8c; color: white; border: none; border-radius: 10px; font-size: 1.05rem; font-weight: 700; }
+.place-order-btn:disabled { background: #f8bbd0; }
+.checkout-summary { background: white; border-radius: 12px; padding: 20px; height: fit-content; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.checkout-summary h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+.summary-item { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.summary-item img { width: 52px; height: 64px; object-fit: cover; border-radius: 6px; }
+.summary-item div { flex: 1; }
+.summary-item div p { font-size: 0.9rem; font-weight: 500; }
+.summary-item div small { color: #6c757d; font-size: 0.8rem; }
+.summary-item span { font-weight: 600; }
+.summary-divider { border-top: 1px solid #dee2e6; margin: 12px 0; }
+.summary-row { display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; }
+.summary-row.total { font-size: 1.1rem; font-weight: 700; margin-top: 4px; }
+@media (max-width: 768px) { .checkout-layout { grid-template-columns: 1fr; } .form-grid { grid-template-columns: 1fr; } }
