@@ -25,19 +25,19 @@ export default function AddProduct() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (isEdit) {
-      getProduct(id).then(res => {
-        const p = res.data;
-        setForm({
-          name: p.name, description: p.description, price: p.price,
-          discount: p.discount, category: p.category, stock: p.stock,
-          sizes: p.sizes || [], colors: p.colors?.join(', ') || '',
-          tags: p.tags?.join(', ') || '', isFeatured: p.isFeatured,
-        });
-        setExistingImages(p.images || []);
+  if (isEdit) {
+    getProduct(id).then(res => {
+      const p = res.data;
+      setForm({
+        name: p.name, description: p.description, price: p.price,
+        discount: p.discount, category: p.category, stock: p.stock,
+        sizes: p.sizes || [], colors: p.colors?.join(', ') || '',
+        tags: p.tags?.join(', ') || '', isFeatured: p.isFeatured,
       });
-    }
-  }, [id]);
+      setExistingImages(p.images || []);
+    });
+  }
+}, [id, isEdit]);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
