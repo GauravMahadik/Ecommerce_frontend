@@ -14,44 +14,47 @@ export const CartProvider = ({ children }) => {
     else setCart({ items: [] });
   }, [user]);
 
-  const fetchCart = async () => {
-    try {
-      const { data } = await axios.get('/api/cart');
-      setCart(data);
-    } catch {}
-  };
+ // Add this at top of file after imports:
+const API = 'https://ecommerce-backend-cmd8.onrender.com/api';
 
-  const addToCart = async (productId, quantity, size, color) => {
-    setLoading(true);
-    try {
-      const { data } = await axios.post('/api/cart', { productId, quantity, size, color });
-      setCart(data);
-      return true;
-    } catch { return false; }
-    finally { setLoading(false); }
-  };
+// Then replace all axios.get('/api/cart') with:
+const fetchCart = async () => {
+  try {
+    const { data } = await axios.get(`${API}/cart`);
+    setCart(data);
+  } catch {}
+};
 
-  const updateItem = async (itemId, quantity) => {
-    try {
-      const { data } = await axios.put(`/api/cart/${itemId}`, { quantity });
-      setCart(data);
-    } catch {}
-  };
+const addToCart = async (productId, quantity, size, color) => {
+  setLoading(true);
+  try {
+    const { data } = await axios.post(`${API}/cart`, { productId, quantity, size, color });
+    setCart(data);
+    return true;
+  } catch { return false; }
+  finally { setLoading(false); }
+};
 
-  const removeItem = async (itemId) => {
-    try {
-      await axios.delete(`/api/cart/${itemId}`);
-      setCart(prev => ({ ...prev, items: prev.items.filter(i => i._id !== itemId) }));
-    } catch {}
-  };
+const updateItem = async (itemId, quantity) => {
+  try {
+    const { data } = await axios.put(`${API}/cart/${itemId}`, { quantity });
+    setCart(data);
+  } catch {}
+};
 
-  const clearCart = async () => {
-    try {
-      await axios.delete('/api/cart/clear');
-      setCart({ items: [] });
-    } catch {}
-  };
+const removeItem = async (itemId) => {
+  try {
+    await axios.delete(`${API}/cart/${itemId}`);
+    setCart(prev => ({ ...prev, items: prev.items.filter(i => i._id !== itemId) }));
+  } catch {}
+};
 
+const clearCart = async () => {
+  try {
+    await axios.delete(`${API}/cart/clear`);
+    setCart({ items: [] });
+  } catch {}
+};
   const cartCount = cart.items?.reduce((a, i) => a + i.quantity, 0) || 0;
 
   const cartTotal = cart.items?.reduce((a, i) => {

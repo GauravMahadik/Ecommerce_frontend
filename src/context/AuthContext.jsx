@@ -3,6 +3,8 @@ import axios from 'axios';
 
 const AuthContext = createContext();
 
+const API = 'https://ecommerce-backend-cmd8.onrender.com/api';
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -11,7 +13,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.get('/api/auth/me')
+      axios.get(`${API}/auth/me`)
         .then(res => setUser(res.data))
         .catch(() => logout())
         .finally(() => setLoading(false));
@@ -21,7 +23,7 @@ export const AuthProvider = ({ children }) => {
   }, [token]);
 
   const login = async (email, password) => {
-    const { data } = await axios.post('/api/auth/login', { email, password });
+    const { data } = await axios.post(`${API}/auth/login`, { email, password });
     localStorage.setItem('token', data.token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
     setToken(data.token);
@@ -30,7 +32,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const register = async (name, email, password) => {
-    const { data } = await axios.post('/api/auth/register', { name, email, password });
+    const { data } = await axios.post(`${API}/auth/register`, { name, email, password });
     localStorage.setItem('token', data.token);
     axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`;
     setToken(data.token);
