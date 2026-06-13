@@ -63,7 +63,7 @@ export default function AdminDashboard() {
     <div className="admin-layout">
       {/* Sidebar */}
       <aside className="admin-sidebar">
-        <div className="admin-logo">👗 DressStore</div>
+        <div className="admin-logo">👗 Sani Fashion</div>
         <nav className="admin-nav">
           <button className={activeTab === 'products' ? 'active' : ''} onClick={() => setActiveTab('products')}>
             <FiShoppingBag /> Products

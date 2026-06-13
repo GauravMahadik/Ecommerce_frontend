@@ -25,7 +25,7 @@ export default function Navbar() {
   return (
     <nav className="navbar">
       <div className="nav-top">
-        <Link to="/" className="nav-logo">👗 DressStore</Link>
+        <Link to="/" className="nav-logo">👗 Sani Fashion</Link>
 
         <form className="nav-search" onSubmit={handleSearch}>
           <input placeholder="Search dresses..." value={search} onChange={e => setSearch(e.target.value)} />

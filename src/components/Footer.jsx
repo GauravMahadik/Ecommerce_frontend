@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="footer">
       <div className="footer-content">
         <div className="footer-brand">
-          <h2>👗 DressStore</h2>
+          <h2>👗 Sani Fashion</h2>
           <p>Beautiful handcrafted dresses for every occasion.</p>
         </div>
         <div className="footer-links">

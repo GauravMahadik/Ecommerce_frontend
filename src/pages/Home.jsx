@@ -43,7 +43,7 @@ export default function Home() {
         <div className="hero-badge">
           <span>NEW</span>
           <span>COLLECTION</span>
-          <span>2024</span>
+          <span>2026</span>
         </div>
       </div>
 
